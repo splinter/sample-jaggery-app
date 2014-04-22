@@ -1,12 +1,12 @@
 var render = function(theme, data) {
     theme('singlecol', {
         body: [{
-            partial: 'view-contact',
+            partial: 'add-contact',
             context: data
         }],
         header: [{
             partial: 'header',
-            context: {title:'Delete a Contact'}
+            context:  { title: 'Add Contact'}
         }],
         footer: [{
             partial: 'footer',
