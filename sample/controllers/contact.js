@@ -4,6 +4,10 @@
 
 var router=require('router');
 
+router.app.get('/contact/:id',function(req,res){
+
+});
+
 router.app.get('/contact/edit/:id',function(req,res){
 
 });

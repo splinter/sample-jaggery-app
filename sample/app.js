@@ -12,11 +12,7 @@ pipe.plug('/themes/default/public/',common.staticContent({dir:'/themes/default/p
 pipe.plug(common.queryParser());
 pipe.plug(common.bodyParser);
 pipe.plug(router);
-pipe.plug(function(err,req,res,session,handlers){
-	var log=new Log();
-	log.info(err);
-});
-//pipe.plug(common.errHandler);
+pipe.plug(common.errHandler);
 
 //Register the routes of the application
 require('/apis/contact.js');
@@ -40,10 +36,8 @@ caramel.configs({
 //Set up caramel as the default renderer for
 //GET requests in the router
 router.app.utils('get-renderer',function(viewId,data){
-	//var log=new Log();
 	caramel=require('caramel');
 	data.__viewId=viewId;
-	//log.info('Calling caramel render');
 	caramel.render(data);
 });
 
