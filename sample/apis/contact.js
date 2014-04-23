@@ -10,7 +10,7 @@ router.app.get('/api/contact/:id',function(req,res){
 });
 
 router.app.post('/api/contact',function(req,res){
-
+	res.render('Done!');
 });
 
 router.app.put('/api/contact/:id',function(req,res){
