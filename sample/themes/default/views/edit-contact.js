@@ -1,7 +1,7 @@
 var render = function(theme, data) {
     theme('singlecol', {
         body: [{
-            partial: 'view-contact',
+            partial: 'edit-contact',
             context: data
         }],
         header: [{

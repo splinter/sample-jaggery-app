@@ -1,6 +1,20 @@
+
 <form>
-	<input type='text' />
-	<input type='text' />
-	<input type='text' />
-	<input type='text' />
+
+	<legend>Id: </legend>
+	<input type='text' id='id' readonly="true" value="{{this.id}}">
+
+	<legend>First Name: </legend>
+	<input type='text' id='fName' value="{{this.fName}}">
+
+	<legend>Last Name: </legend>
+	<input type='text' id='lName' value="{{this.lName}}">
+
+	<legend>Telephone: </legend>
+	<input type='text' id='telephone' value="{{this.telephone}}">
+
+	<legend>Email: </legend>
+	<input type='text' id='email' value="{{this.email}}" >
+
+	<a id='btn-delete-contact' class='btn'>Edit Contact</a>
 </form>
