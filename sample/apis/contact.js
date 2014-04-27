@@ -55,8 +55,15 @@ router.app.put('/api/contact/:id',function(req,res){
 
 router.app.delete('/api/contact/:id',function(req,res){
 	var result={};
+	var options=req.body;
 	result.code=200;
 	result.msg='Contact deleted succsessfully';
+	var isRemoved=addressBook.removeContact(options);
+
+	if(!isRemoved){
+		result.code=500;
+		result.msg='Contact was not deleted';
+	}
 	res.status=result.code;
 	res.render(result);
 });

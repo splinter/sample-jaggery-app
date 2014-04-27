@@ -9,12 +9,19 @@ $(function(){
 	var FORM_DELETE_CONTACT='#form-delete-contact';
 	var API_DELETE_CONTACT='/sample/api/contact';
 	var CONTACTS_PAGE='/sample/contacts';
-
+	var resolveAPI=function(data){
+		return API_DELETE_CONTACT+'/'+data.id;
+	};
 	$(BTN_DELETE_CONTACT).on('click',function(e){
 
 		var data=CommonUtils.getFormData(FORM_DELETE_CONTACT);
 		var id=data.id;
-		var promise=$.delete(API_DELETE_CONTACT+'/'+id,data);
+		
+		var promise=$.ajax({
+			type:'DELETE',
+			data:data,
+			url:resolveAPI(data)
+		});
 
 		promise.success(function(){
 			alert('Contact has been successfully deleted');

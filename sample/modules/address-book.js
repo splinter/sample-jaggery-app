@@ -33,7 +33,9 @@ var AddressBook = {};
     var removeContact = function(options) {
     	var contact=options;
     	var contacts=db();
-    	if(!contact){
+
+        var isRemoved=deleteContact(contact, contacts);
+    	if(!isRemoved){
     		return false;
     	}
     	return true;
@@ -124,10 +126,11 @@ var AddressBook = {};
     	return null;
     };
 
-    var deleteContact=function(id,data){
-
-    	for(var index in data){
-    		if(data[index].id===id){
+    var deleteContact=function(contact,contacts){
+    	for(var index in contacts){
+    		if(contacts[index].id===contact.id){
+                contacts.splice(index,1);
+                session.put(ADDRESS_STORE,contacts);
     			return true;	
     		}
     	}
