@@ -29,24 +29,25 @@ has only been added in v4.
 ## Modules
 
 This sample requires the following Jaggery modules:
-- pipe (Available at: )
-- pipe-common
-- router
-- caramel-view-engine
+
+- pipe (Available at: [https://github.com/splinter/jaggery-pipe](https://github.com/splinter/jaggery-pipe) )
+- pipe-common (Available at: [https://github.com/splinter/jaggery-pipe/tree/master/plugins/pipe-common](https://github.com/splinter/jaggery-pipe/tree/master/plugins/pipe-common) )
+- router (Available at: [https://github.com/splinter/jaggery-pipe/tree/master/plugins/router](https://github.com/splinter/jaggery-pipe/tree/master/plugins/router))
+- caramel-view-engine (Available at: [https://github.com/splinter/caramel-view-engine](https://github.com/splinter/caramel-view-engine))
 
 Although the above modules are bundled with this sample under the prerequisites, you can also
 get latest version from the respective repos.
 
-- pipe 
-- pipe-common
-- router
-- caramel-view-engine
-
 # Installation
 1. Copy all of the folders in the prerequisites directory to the JAGGERY_HOME/modules directory
 2. Copy the sample directory to the JAGGERY_HOME/apps directory
+3. Start the server with the command sh bin/server.sh -DmodRefresh=true (This will ensure changes to routing code are loaded)
 
-That is it! You can now navigate to either http://localhost:9763/sample/contacts or https://localhost:9443/sample/contacts to get started.
+
+That is it! You can now navigate to either
+
+- [http://localhost:9763/sample/contacts](http://localhost:9763/sample/contacts) or
+- [https://localhost:9443/sample/contacts](http://localhost:9763/sample/contacts) to get started.
 
 
 

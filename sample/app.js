@@ -26,7 +26,7 @@ var caramel=require('caramel');
 
 caramel.configs({
 	context:'/sample',
-	cache:true,
+	cache:false,
 	negotiation:true,
 	themer:function(){
 		return 'default'
