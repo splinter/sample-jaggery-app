@@ -1,4 +1,4 @@
-var cache=false;
+//var cache=false;
 
 var caramelViewEngine=require('caramel-view-engine').engine;
 
