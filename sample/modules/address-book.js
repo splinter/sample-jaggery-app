@@ -5,6 +5,7 @@
 var AddressBook = {};
 (function() {
     var ADDRESS_STORE = 'address.store';
+    var log=new Log();
     /**
      * The function adds a single contact to the address book
      * @options: A JSON object describing a single contact
@@ -14,16 +15,13 @@ var AddressBook = {};
     var addContact = function(options) {
     	var contacts=db();
     	var contact={};
-        var log=new Log();
     	var uuid=require('uuid');
-        log.info('Adding contact');
     	contact.id=uuid.generate();
     	contact.fName=options.fName;
     	contact.lName=options.lName;
     	contact.telephone=options.telephone;
     	contact.email=options.email;
     	contacts.push(contact);
-        log.info('Added contact: '+stringify(contact));
     	return true;
     };
     /**
@@ -49,8 +47,8 @@ var AddressBook = {};
     var editContact = function(options) {
     	var contact=options;
     	var contacts=db();
-    	var savedContact=search(contact.id);
 
+    	var savedContact=search(contact);
     	//Check if the provided contact exists in the db
     	if(!savedContact){
     		return false;
@@ -58,9 +56,9 @@ var AddressBook = {};
 
     	//Update the contact details
     	for(var key in contact){
+
     		savedContact[key]=contact[key];
     	}
-
     	return true;
     };
     /**
@@ -116,6 +114,7 @@ var AddressBook = {};
     };
 
     var findContact=function(id,data){
+
     	for(var index in data){
     		if(data[index].id===id){
     			return data[index];	
@@ -129,8 +128,6 @@ var AddressBook = {};
 
     	for(var index in data){
     		if(data[index].id===id){
-
-
     			return true;	
     		}
     	}

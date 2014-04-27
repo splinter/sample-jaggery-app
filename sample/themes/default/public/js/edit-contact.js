@@ -9,12 +9,19 @@ $(function(){
 	var FORM_EDIT_CONTACT='#form-edit-contact';
 	var API_EDIT_CONTACT='/sample/api/contact';
 	var CONTACTS_PAGE='/sample/contacts';
-
+	var resolveAPI=function(data){
+		return API_EDIT_CONTACT+'/'+data.id;
+	}
 	$(BTN_EDIT_CONTACT).on('click',function(e){
 
 		var data=CommonUtils.getFormData(FORM_EDIT_CONTACT);
 		var id=data.id;
-		var promise=$.put(API_EDIT_CONTACT+'/'+id,data);
+
+		var promise=$.ajax({
+			url:resolveAPI(data),
+			type:'PUT',
+			data:data
+		});
 
 		promise.success(function(){
 			alert('Contact has been successfully updated');
