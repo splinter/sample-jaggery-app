@@ -26,6 +26,7 @@ router.app.post('/api/contact',function(req,res){
 	result.code=200;
 	result.msg='Contact added successfully';
 	var data=req.body;
+	log.info(data);
 	var isAdded=addressBook.addContact(data);
 
 	if(!isAdded){
@@ -38,12 +39,12 @@ router.app.post('/api/contact',function(req,res){
 
 router.app.put('/api/contact/:id',function(req,res){
 	var options=req.body;
-	var success=addressBook.editContact(options);
+	var isUpdated=addressBook.editContact(options);
 	var result={};
 	result.msg='Contact updated successfully';
 	result.code=200;
 
-	if(!success){
+	if(!isUpdated){
 		result.code=500;
 		result.msg='Contact was not added successfully';
 	}

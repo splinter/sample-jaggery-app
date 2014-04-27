@@ -46,7 +46,7 @@ get latest version from the respective repos.
 1. Copy all of the folders in the prerequisites directory to the JAGGERY_HOME/modules directory
 2. Copy the sample directory to the JAGGERY_HOME/apps directory
 
-That is it! You can now navigate to either http://localhost:9763/sample/contacts or https://localhost:9443/sample/contacts.
+That is it! You can now navigate to either http://localhost:9763/sample/contacts or https://localhost:9443/sample/contacts to get started.
 
 
 

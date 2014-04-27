@@ -15,7 +15,7 @@ $(function(){
 		var data=CommonUtils.getFormData(FORM_ADD_CONTACT);
 
 		var promise=$.post(API_ADD_CONTACT,data);
-
+		
 		promise.success(function(){
 			alert('Contact has been successfully added');
 			window.location=CONTACTS_PAGE;

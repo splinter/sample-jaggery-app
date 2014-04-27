@@ -14,13 +14,16 @@ var AddressBook = {};
     var addContact = function(options) {
     	var contacts=db();
     	var contact={};
+        var log=new Log();
     	var uuid=require('uuid');
+        log.info('Adding contact');
     	contact.id=uuid.generate();
     	contact.fName=options.fName;
     	contact.lName=options.lName;
     	contact.telephone=options.telephone;
     	contact.email=options.email;
     	contacts.push(contact);
+        log.info('Added contact: '+stringify(contact));
     	return true;
     };
     /**
@@ -94,7 +97,7 @@ var AddressBook = {};
 
     var populateFakeData=function(list){
     	list.push({
-    		id:'1',
+    		id:'3cdbeac3-b279-4b4e-b5d3-481928879c33',
     		fName:'John',
     		lName:'Doe',
     		address:'Fake Address 1',
@@ -103,7 +106,7 @@ var AddressBook = {};
     	});
 
     	list.push({
-    		id:'2',
+    		id:'c8269eb7-b2d8-410f-aeab-ffaac27dfab6',
     		fName:'Jane',
     		lName:'Doe',
     		address:'Fake Address 2',
