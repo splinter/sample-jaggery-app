@@ -38,9 +38,8 @@ caramel.configs({
 router.app.utils('get-renderer',function(viewId,data,res){
 
 	caramel=require('caramel');
-	var log=new Log();
-	if((viewId=='')||(!viewId)){
-		log.info('Rendering json');
+	//Print only a json response if there is no viewId
+	if((viewId=='')||(!viewId)){ 
 		res.addHeader('Content-Type','application/json');
 		print(data);
 		return;
