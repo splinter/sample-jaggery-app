@@ -22,8 +22,16 @@ router.app.get('/api/contact/:id',function(req,res){
  
 router.app.post('/api/contact',function(req,res){
 	var result={};
+	var log=new Log();
 	result.code=200;
 	result.msg='Contact added successfully';
+	var data=req.body;
+	var isAdded=addressBook.addContact(data);
+
+	if(!isAdded){
+		result.code=500;
+		result.msg='A contact could not be created with the provided data.';
+	}
 	res.status=result.code;
 	res.render(result);
 });
