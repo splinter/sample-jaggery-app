@@ -35,10 +35,19 @@ caramel.configs({
 
 //Set up caramel as the default renderer for
 //GET requests in the router
-router.app.utils('get-renderer',function(viewId,data){
+router.app.utils('get-renderer',function(viewId,data,res){
+
 	caramel=require('caramel');
+	var log=new Log();
+	if((viewId=='')||(!viewId)){
+		log.info('Rendering json');
+		res.addHeader('Content-Type','application/json');
+		print(data);
+		return;
+	}
 	data.__viewId=viewId;
 	caramel.render(data);
+
 });
 
 application.serve(function(req,res,session){
